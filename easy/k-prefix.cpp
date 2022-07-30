@@ -1,22 +1,22 @@
 // Link to problem - https://binarysearch.com/problems/K-Prefix
-// status - not accepted ❌
+// status - accepted ✅
 
 #include "vector.h";
 
 int solve(vector<int>& nums, int k) {
-    int i = -1;
     int total = 0;
+    int backup = -1;
 
-    if (nums.size() == 0) return i;
+    if (nums.size() == 0) return -1;
     if (nums.size() == 1) return 0;
 
-    for (int num : nums) {
-        if (total + num > k) {
-            return i;
+    for (int i = 0; i < nums.size(); i++) {
+        total += nums[i];
+
+        if (total <= k) {
+            backup = i;
         }
-        total += num;
-        i++;
     }
 
-    return i;
+    return backup;
 }
