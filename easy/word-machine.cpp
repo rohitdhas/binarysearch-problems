@@ -1,4 +1,5 @@
 // Link to problem - https://binarysearch.com/problems/Word-Machine
+// status - accepted ✅
 
 int solve(vector<string>& ops) {
     stack<int> stack;
