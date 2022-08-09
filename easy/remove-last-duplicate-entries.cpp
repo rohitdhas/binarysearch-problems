@@ -1,22 +1,17 @@
-// Link to problem - https://binarysearch.com/problems/Run-Length-Encoding
-// Status - Not accepted ❌
+// Link to problem - https://binarysearch.com/problems/Remove-Last-Duplicate-Entries
+// Status - accepted ✅
 
 vector<int> solve(vector<int>& nums) {
-    if (!nums.size()) return nums;
-
-    sort(nums.begin(), nums.end());
-    int prev = nums[0];
-
-    for (int i=1;i<nums.size(); i++) {
-        if (nums[i] != prev) {
-            prev = nums[i];
-            nums.erase(nums.begin()+(i-1));
-        }
-
-        if (i == nums.size()-1 && nums[i] == prev) {
-            nums.erase(nums.begin()+(i-1));
-        } 
+    unordered_map<int, pair<int,int>> mp;
+    vector<int> res;
+    for(int i = 0; i< nums.size(); i++) {
+       mp[nums[i]].first = i;
+       mp[nums[i]].second++;
     }
-    
-    return nums;
+    for(int i = 0; i < nums.size(); i++) {
+       if(mp[nums[i]].second == 1 || mp[nums[i]].first != i) {
+           res.push_back(nums[i]);
+       }
+    }
+    return res;
 }
