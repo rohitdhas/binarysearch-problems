@@ -10,7 +10,7 @@ vector<string> solve(int n) {
         if (i < 3) {
             res.push_back(num);
         } else {
-            bool isCase = num.find("3") != string::npos || num.find("6") !=     string::npos || num.find("9") != string::npos;
+            bool isCase = num.find("3") != string::npos || num.find("6") != string::npos || num.find("9") != string::npos;
 
             if (i % 3 == 0 || isCase) {
                 res.push_back("clap");
